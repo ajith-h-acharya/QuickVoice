@@ -1,5 +1,12 @@
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
+load_dotenv()
+try:
+    from langfuse import observe
+except ImportError:  # pragma: no cover - fallback for older Langfuse versions
+    from langfuse.decorators import observe  # type: ignore
+
+from src.telemetry.langfuse_client import log_evaluation_score
 from livekit import agents, rtc
 from livekit.agents import (
     AgentSession,
@@ -433,7 +440,7 @@ class Assistant(Agent):
         )
         return json.dumps(result.get("data", result), ensure_ascii=False)
 
-
+@observe
 async def entrypoint(ctx: JobContext):
     logger.info("Entrypoint called with room: {}", redact_sensitive(ctx.room.name))
 

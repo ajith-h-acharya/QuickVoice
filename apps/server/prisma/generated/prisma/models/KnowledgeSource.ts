@@ -34,6 +34,9 @@ export type KnowledgeSourceMinAggregateOutputType = {
   storagePath: string | null
   sourceType: $Enums.sourceType | null
   status: $Enums.kbStatus | null
+  errorCode: string | null
+  errorMessage: string | null
+  errorRetryable: boolean | null
   lastIndexedAt: Date | null
   uploadedAt: Date | null
 }
@@ -48,6 +51,9 @@ export type KnowledgeSourceMaxAggregateOutputType = {
   storagePath: string | null
   sourceType: $Enums.sourceType | null
   status: $Enums.kbStatus | null
+  errorCode: string | null
+  errorMessage: string | null
+  errorRetryable: boolean | null
   lastIndexedAt: Date | null
   uploadedAt: Date | null
 }
@@ -62,6 +68,9 @@ export type KnowledgeSourceCountAggregateOutputType = {
   storagePath: number
   sourceType: number
   status: number
+  errorCode: number
+  errorMessage: number
+  errorRetryable: number
   metadata: number
   lastIndexedAt: number
   uploadedAt: number
@@ -79,6 +88,9 @@ export type KnowledgeSourceMinAggregateInputType = {
   storagePath?: true
   sourceType?: true
   status?: true
+  errorCode?: true
+  errorMessage?: true
+  errorRetryable?: true
   lastIndexedAt?: true
   uploadedAt?: true
 }
@@ -93,6 +105,9 @@ export type KnowledgeSourceMaxAggregateInputType = {
   storagePath?: true
   sourceType?: true
   status?: true
+  errorCode?: true
+  errorMessage?: true
+  errorRetryable?: true
   lastIndexedAt?: true
   uploadedAt?: true
 }
@@ -107,6 +122,9 @@ export type KnowledgeSourceCountAggregateInputType = {
   storagePath?: true
   sourceType?: true
   status?: true
+  errorCode?: true
+  errorMessage?: true
+  errorRetryable?: true
   metadata?: true
   lastIndexedAt?: true
   uploadedAt?: true
@@ -195,6 +213,9 @@ export type KnowledgeSourceGroupByOutputType = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode: string | null
+  errorMessage: string | null
+  errorRetryable: boolean | null
   metadata: runtime.JsonValue | null
   lastIndexedAt: Date | null
   uploadedAt: Date
@@ -231,6 +252,9 @@ export type KnowledgeSourceWhereInput = {
   storagePath?: Prisma.StringFilter<"KnowledgeSource"> | string
   sourceType?: Prisma.EnumsourceTypeFilter<"KnowledgeSource"> | $Enums.sourceType
   status?: Prisma.EnumkbStatusFilter<"KnowledgeSource"> | $Enums.kbStatus
+  errorCode?: Prisma.StringNullableFilter<"KnowledgeSource"> | string | null
+  errorMessage?: Prisma.StringNullableFilter<"KnowledgeSource"> | string | null
+  errorRetryable?: Prisma.BoolNullableFilter<"KnowledgeSource"> | boolean | null
   metadata?: Prisma.JsonNullableFilter<"KnowledgeSource">
   lastIndexedAt?: Prisma.DateTimeNullableFilter<"KnowledgeSource"> | Date | string | null
   uploadedAt?: Prisma.DateTimeFilter<"KnowledgeSource"> | Date | string
@@ -249,6 +273,9 @@ export type KnowledgeSourceOrderByWithRelationInput = {
   storagePath?: Prisma.SortOrder
   sourceType?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  errorCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  errorMessage?: Prisma.SortOrderInput | Prisma.SortOrder
+  errorRetryable?: Prisma.SortOrderInput | Prisma.SortOrder
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   lastIndexedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   uploadedAt?: Prisma.SortOrder
@@ -270,6 +297,9 @@ export type KnowledgeSourceWhereUniqueInput = Prisma.AtLeast<{
   storagePath?: Prisma.StringFilter<"KnowledgeSource"> | string
   sourceType?: Prisma.EnumsourceTypeFilter<"KnowledgeSource"> | $Enums.sourceType
   status?: Prisma.EnumkbStatusFilter<"KnowledgeSource"> | $Enums.kbStatus
+  errorCode?: Prisma.StringNullableFilter<"KnowledgeSource"> | string | null
+  errorMessage?: Prisma.StringNullableFilter<"KnowledgeSource"> | string | null
+  errorRetryable?: Prisma.BoolNullableFilter<"KnowledgeSource"> | boolean | null
   metadata?: Prisma.JsonNullableFilter<"KnowledgeSource">
   lastIndexedAt?: Prisma.DateTimeNullableFilter<"KnowledgeSource"> | Date | string | null
   uploadedAt?: Prisma.DateTimeFilter<"KnowledgeSource"> | Date | string
@@ -288,6 +318,9 @@ export type KnowledgeSourceOrderByWithAggregationInput = {
   storagePath?: Prisma.SortOrder
   sourceType?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  errorCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  errorMessage?: Prisma.SortOrderInput | Prisma.SortOrder
+  errorRetryable?: Prisma.SortOrderInput | Prisma.SortOrder
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   lastIndexedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   uploadedAt?: Prisma.SortOrder
@@ -309,6 +342,9 @@ export type KnowledgeSourceScalarWhereWithAggregatesInput = {
   storagePath?: Prisma.StringWithAggregatesFilter<"KnowledgeSource"> | string
   sourceType?: Prisma.EnumsourceTypeWithAggregatesFilter<"KnowledgeSource"> | $Enums.sourceType
   status?: Prisma.EnumkbStatusWithAggregatesFilter<"KnowledgeSource"> | $Enums.kbStatus
+  errorCode?: Prisma.StringNullableWithAggregatesFilter<"KnowledgeSource"> | string | null
+  errorMessage?: Prisma.StringNullableWithAggregatesFilter<"KnowledgeSource"> | string | null
+  errorRetryable?: Prisma.BoolNullableWithAggregatesFilter<"KnowledgeSource"> | boolean | null
   metadata?: Prisma.JsonNullableWithAggregatesFilter<"KnowledgeSource">
   lastIndexedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"KnowledgeSource"> | Date | string | null
   uploadedAt?: Prisma.DateTimeWithAggregatesFilter<"KnowledgeSource"> | Date | string
@@ -321,6 +357,9 @@ export type KnowledgeSourceCreateInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -339,6 +378,9 @@ export type KnowledgeSourceUncheckedCreateInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -351,6 +393,9 @@ export type KnowledgeSourceUpdateInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -369,6 +414,9 @@ export type KnowledgeSourceUncheckedUpdateInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -384,6 +432,9 @@ export type KnowledgeSourceCreateManyInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -396,6 +447,9 @@ export type KnowledgeSourceUpdateManyMutationInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -411,6 +465,9 @@ export type KnowledgeSourceUncheckedUpdateManyInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -436,6 +493,9 @@ export type KnowledgeSourceCountOrderByAggregateInput = {
   storagePath?: Prisma.SortOrder
   sourceType?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  errorCode?: Prisma.SortOrder
+  errorMessage?: Prisma.SortOrder
+  errorRetryable?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
   lastIndexedAt?: Prisma.SortOrder
   uploadedAt?: Prisma.SortOrder
@@ -451,6 +511,9 @@ export type KnowledgeSourceMaxOrderByAggregateInput = {
   storagePath?: Prisma.SortOrder
   sourceType?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  errorCode?: Prisma.SortOrder
+  errorMessage?: Prisma.SortOrder
+  errorRetryable?: Prisma.SortOrder
   lastIndexedAt?: Prisma.SortOrder
   uploadedAt?: Prisma.SortOrder
 }
@@ -465,6 +528,9 @@ export type KnowledgeSourceMinOrderByAggregateInput = {
   storagePath?: Prisma.SortOrder
   sourceType?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  errorCode?: Prisma.SortOrder
+  errorMessage?: Prisma.SortOrder
+  errorRetryable?: Prisma.SortOrder
   lastIndexedAt?: Prisma.SortOrder
   uploadedAt?: Prisma.SortOrder
 }
@@ -610,6 +676,9 @@ export type KnowledgeSourceCreateWithoutUserInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -626,6 +695,9 @@ export type KnowledgeSourceUncheckedCreateWithoutUserInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -670,6 +742,9 @@ export type KnowledgeSourceScalarWhereInput = {
   storagePath?: Prisma.StringFilter<"KnowledgeSource"> | string
   sourceType?: Prisma.EnumsourceTypeFilter<"KnowledgeSource"> | $Enums.sourceType
   status?: Prisma.EnumkbStatusFilter<"KnowledgeSource"> | $Enums.kbStatus
+  errorCode?: Prisma.StringNullableFilter<"KnowledgeSource"> | string | null
+  errorMessage?: Prisma.StringNullableFilter<"KnowledgeSource"> | string | null
+  errorRetryable?: Prisma.BoolNullableFilter<"KnowledgeSource"> | boolean | null
   metadata?: Prisma.JsonNullableFilter<"KnowledgeSource">
   lastIndexedAt?: Prisma.DateTimeNullableFilter<"KnowledgeSource"> | Date | string | null
   uploadedAt?: Prisma.DateTimeFilter<"KnowledgeSource"> | Date | string
@@ -682,6 +757,9 @@ export type KnowledgeSourceCreateWithoutOrganizationInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -698,6 +776,9 @@ export type KnowledgeSourceUncheckedCreateWithoutOrganizationInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -736,6 +817,9 @@ export type KnowledgeSourceCreateWithoutAgentInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -752,6 +836,9 @@ export type KnowledgeSourceUncheckedCreateWithoutAgentInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -792,6 +879,9 @@ export type KnowledgeSourceCreateManyUserInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -804,6 +894,9 @@ export type KnowledgeSourceUpdateWithoutUserInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -820,6 +913,9 @@ export type KnowledgeSourceUncheckedUpdateWithoutUserInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -834,6 +930,9 @@ export type KnowledgeSourceUncheckedUpdateManyWithoutUserInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -848,6 +947,9 @@ export type KnowledgeSourceCreateManyOrganizationInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -860,6 +962,9 @@ export type KnowledgeSourceUpdateWithoutOrganizationInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -876,6 +981,9 @@ export type KnowledgeSourceUncheckedUpdateWithoutOrganizationInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -890,6 +998,9 @@ export type KnowledgeSourceUncheckedUpdateManyWithoutOrganizationInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -904,6 +1015,9 @@ export type KnowledgeSourceCreateManyAgentInput = {
   storagePath: string
   sourceType: $Enums.sourceType
   status: $Enums.kbStatus
+  errorCode?: string | null
+  errorMessage?: string | null
+  errorRetryable?: boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Date | string | null
   uploadedAt?: Date | string
@@ -916,6 +1030,9 @@ export type KnowledgeSourceUpdateWithoutAgentInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -932,6 +1049,9 @@ export type KnowledgeSourceUncheckedUpdateWithoutAgentInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -946,6 +1066,9 @@ export type KnowledgeSourceUncheckedUpdateManyWithoutAgentInput = {
   storagePath?: Prisma.StringFieldUpdateOperationsInput | string
   sourceType?: Prisma.EnumsourceTypeFieldUpdateOperationsInput | $Enums.sourceType
   status?: Prisma.EnumkbStatusFieldUpdateOperationsInput | $Enums.kbStatus
+  errorCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  errorRetryable?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   lastIndexedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   uploadedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -963,6 +1086,9 @@ export type KnowledgeSourceSelect<ExtArgs extends runtime.Types.Extensions.Inter
   storagePath?: boolean
   sourceType?: boolean
   status?: boolean
+  errorCode?: boolean
+  errorMessage?: boolean
+  errorRetryable?: boolean
   metadata?: boolean
   lastIndexedAt?: boolean
   uploadedAt?: boolean
@@ -981,6 +1107,9 @@ export type KnowledgeSourceSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   storagePath?: boolean
   sourceType?: boolean
   status?: boolean
+  errorCode?: boolean
+  errorMessage?: boolean
+  errorRetryable?: boolean
   metadata?: boolean
   lastIndexedAt?: boolean
   uploadedAt?: boolean
@@ -999,6 +1128,9 @@ export type KnowledgeSourceSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   storagePath?: boolean
   sourceType?: boolean
   status?: boolean
+  errorCode?: boolean
+  errorMessage?: boolean
+  errorRetryable?: boolean
   metadata?: boolean
   lastIndexedAt?: boolean
   uploadedAt?: boolean
@@ -1017,12 +1149,15 @@ export type KnowledgeSourceSelectScalar = {
   storagePath?: boolean
   sourceType?: boolean
   status?: boolean
+  errorCode?: boolean
+  errorMessage?: boolean
+  errorRetryable?: boolean
   metadata?: boolean
   lastIndexedAt?: boolean
   uploadedAt?: boolean
 }
 
-export type KnowledgeSourceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"kbId" | "organizationId" | "agentId" | "userId" | "name" | "originalFileName" | "storagePath" | "sourceType" | "status" | "metadata" | "lastIndexedAt" | "uploadedAt", ExtArgs["result"]["knowledgeSource"]>
+export type KnowledgeSourceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"kbId" | "organizationId" | "agentId" | "userId" | "name" | "originalFileName" | "storagePath" | "sourceType" | "status" | "errorCode" | "errorMessage" | "errorRetryable" | "metadata" | "lastIndexedAt" | "uploadedAt", ExtArgs["result"]["knowledgeSource"]>
 export type KnowledgeSourceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>
   agent?: boolean | Prisma.KnowledgeSource$agentArgs<ExtArgs>
@@ -1056,6 +1191,9 @@ export type $KnowledgeSourcePayload<ExtArgs extends runtime.Types.Extensions.Int
     storagePath: string
     sourceType: $Enums.sourceType
     status: $Enums.kbStatus
+    errorCode: string | null
+    errorMessage: string | null
+    errorRetryable: boolean | null
     metadata: runtime.JsonValue | null
     lastIndexedAt: Date | null
     uploadedAt: Date
@@ -1494,6 +1632,9 @@ export interface KnowledgeSourceFieldRefs {
   readonly storagePath: Prisma.FieldRef<"KnowledgeSource", 'String'>
   readonly sourceType: Prisma.FieldRef<"KnowledgeSource", 'sourceType'>
   readonly status: Prisma.FieldRef<"KnowledgeSource", 'kbStatus'>
+  readonly errorCode: Prisma.FieldRef<"KnowledgeSource", 'String'>
+  readonly errorMessage: Prisma.FieldRef<"KnowledgeSource", 'String'>
+  readonly errorRetryable: Prisma.FieldRef<"KnowledgeSource", 'Boolean'>
   readonly metadata: Prisma.FieldRef<"KnowledgeSource", 'Json'>
   readonly lastIndexedAt: Prisma.FieldRef<"KnowledgeSource", 'DateTime'>
   readonly uploadedAt: Prisma.FieldRef<"KnowledgeSource", 'DateTime'>
